@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -31,15 +32,15 @@ namespace WMMT5_Resolution_Patcher
 
             float aspect = (float)xint / yint;
 
-            string aspectstring = Convert.ToString(aspect);
+            string aspectstring = aspect.ToString(new CultureInfo("en-US"));
 
-            if (aspectstring.Equals("1,6"))
+            if (aspectstring.Equals("1.6"))
             {
                 MessageBox.Show("16:10 is not supported yet, sorry.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            if (!aspectstring.Equals("1,777778") && !aspectstring.Equals("2,37037") && !aspectstring.Equals("1,333333") && !aspectstring.Equals("1,25"))
+            if (!aspectstring.Equals("1.777778") && !aspectstring.Equals("2.37037") && !aspectstring.Equals("1.333333") && !aspectstring.Equals("1,25"))
             {
                 MessageBox.Show("Invalid resolution.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
